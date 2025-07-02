@@ -1,0 +1,15 @@
+model_path:
+  ckpt_path: ./checkpoints/PAInpaint
+  pretrained_Ref_Unet_path: stable-diffusion-v1-5/stable-diffusion-v1-5/
+  pretrained_Target_Unet_path: stable-diffusion-v1-5/stable-diffusion-inpainting/
+  pretrained_vae_name_or_path: stable-diffusion-v1-5/sd-vae-ft-mse/
+  image_encoder_path: image_encoder/
+  depth_model: depth_model/depth_anything_vitb14.pth
+data_path:
+  output_dir: ./results/
+  test_dir: ./test_images/
+
+
+  
+
+

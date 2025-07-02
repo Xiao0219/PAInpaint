@@ -35,7 +35,7 @@ Please place the following model weight files in the corresponding directories:
 The model weights can be downloaded from the following links:
 
 - **Depth Anything Model**: [Download](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints/depth_anything_vitl14.pth)
-- **Base Model**: [Download from Hugging Face](https://huggingface.co/stabilityai/stable-diffusion-1.5)
+- **Base Model**: [Download from Hugging Face](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main)
 - **VAE Model**: [Download from Hugging Face](https://huggingface.co/stabilityai/sd-vae-ft-mse)
 - **Image Encoder**: [Download from Hugging Face](https://huggingface.co/openai/clip-vit-large-patch14)
 - **PAInpaint Checkpoint**: [Request Access](#) (please waiting)

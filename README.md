@@ -30,6 +30,18 @@ Please place the following model weight files in the corresponding directories:
 - Reference model: Place according to the `pretrained_Ref_Unet_path` path in the configuration file
 - PAInpaint checkpoint: Place according to the `ckpt_path` path in the configuration file
 
+### Download Links
+
+The model weights can be downloaded from the following links:
+
+- **Depth Anything Model**: [Download](https://huggingface.co/spaces/LiheYoung/Depth-Anything/blob/main/checkpoints/depth_anything_vitl14.pth)
+- **Base Model**: [Download from Hugging Face](https://huggingface.co/stabilityai/stable-diffusion-1.5)
+- **VAE Model**: [Download from Hugging Face](https://huggingface.co/stabilityai/sd-vae-ft-mse)
+- **Image Encoder**: [Download from Hugging Face](https://huggingface.co/openai/clip-vit-large-patch14)
+- **PAInpaint Checkpoint**: [Request Access](#) (please waiting)
+
+After downloading, place the weights in the `checkpoints` directory according to the paths specified in your configuration file.
+
 ## Configuration
 Please check the `configs/inference.yaml` file before running to ensure all paths are set correctly.
 

@@ -20,7 +20,7 @@ else:
 from .resampler import LinearResampler
 
 # from models.ReferenceNet_attention import ReferenceNetAttention
-from models.ReferenceNet_attention_DRAM_v2_424 import ReferenceNetAttentionXCA as ReferenceNetAttention
+from models.DSAM import ReferenceNetAttentionXCA as ReferenceNetAttention
 
 
 # 定义SpatialTransformer模块

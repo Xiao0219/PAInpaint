@@ -2,20 +2,6 @@
 
 This repository contains all necessary code for PAInpaint model inference.
 
-## Directory Structure
-```
-PAInpaint_inference/
-├── configs/                 # Configuration files
-├── models/                  # Model definitions
-├── PAInpaint/               # PAInpaint related code
-├── dataset/                 # Dataset utilities
-├── depthanything/           # Depth estimation related code
-├── checkpoints/             # Model weights directory (to be added manually)
-├── run_test_final.py        # Main inference script
-├── run_test_final.sh        # Run script
-└── README.md                # This file
-```
-
 ## Installing Dependencies
 ```bash
 pip install -r requirements.txt

@@ -1,6 +1,4 @@
-# PAInpaint Inference Code
-
-This repository contains all necessary code for PAInpaint model inference.
+# Perspective-Aware Inpainting: Bridging Large Viewpoint Gaps for Reference-Guided Inpainting
 
 ## Installing Dependencies
 ```bash

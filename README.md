@@ -22,6 +22,7 @@ The model weights can be downloaded from the following links:
 - **Base Model**: [Download from Hugging Face](https://huggingface.co/stable-diffusion-v1-5/stable-diffusion-v1-5/tree/main)
 - **VAE Model**: [Download from Hugging Face](https://huggingface.co/stabilityai/sd-vae-ft-mse)
 - **Image Encoder**: [Download from Hugging Face](https://huggingface.co/openai/clip-vit-large-patch14)
+- **Reference model**: [Download from huggingface Face](https://huggingface.co/botp/stable-diffusion-v1-5-inpainting/tree/main)
 - **PAInpaint Checkpoint**: [Download from Google Drive](https://drive.google.com/file/d/1N994n80x7npNy_n74Y-R1u75v-9Bo89f/view?usp=share_link)
 
 After downloading, place the weights in the `checkpoints` directory according to the paths specified in your configuration file.

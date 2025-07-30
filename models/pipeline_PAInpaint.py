@@ -1180,11 +1180,16 @@ class PAInpaintPipeline(
                     if reference_control_reader is not None and reference_control_writer is not None:
                         reference_control_reader.clear()
                         reference_control_writer.clear()
-                    
+
+                        # 设置当前时间步信息用于自适应融合
+                        current_timestep = len(timesteps) - i - 1  # 转换为正向时间步
+                        reference_control_reader.set_timestep(current_timestep, len(timesteps))
+                        reference_control_writer.set_timestep(current_timestep, len(timesteps))
+
                     ref_latents_for_referencenet = source_image_latents.repeat(2, 1, 1, 1)
                     if stn is not None:
                         ref_latents_for_referencenet = stn(ref_latents_for_referencenet)
-                    
+
                     referencenet(
                         ref_latents_for_referencenet,#torch.Size([2, 4, 64, 64])
                         t,

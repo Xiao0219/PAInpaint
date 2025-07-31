@@ -853,7 +853,7 @@ class PAInpaintPipeline(
         reference_control_writer = None,
         clip_image_embed = None,
         depth_feature = None,
-        stn = None,
+        prm = None,
         **kwargs,
     ):
         r"""
@@ -1187,8 +1187,8 @@ class PAInpaintPipeline(
                         reference_control_writer.set_timestep(current_timestep, len(timesteps))
 
                     ref_latents_for_referencenet = source_image_latents.repeat(2, 1, 1, 1)
-                    if stn is not None:
-                        ref_latents_for_referencenet = stn(ref_latents_for_referencenet)
+                    if prm is not None:
+                        ref_latents_for_referencenet = prm(ref_latents_for_referencenet)
 
                     referencenet(
                         ref_latents_for_referencenet,#torch.Size([2, 4, 64, 64])

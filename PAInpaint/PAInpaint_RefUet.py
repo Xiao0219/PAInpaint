@@ -23,13 +23,10 @@ from .resampler import LinearResampler
 from models.DSAM_424 import ReferenceNetAttentionXCA as ReferenceNetAttention
 
 
-# 定义SpatialTransformer模块
-# 这是一个简化的STN实现，用于处理图像latent（例如，4通道，64x64分辨率）
-class SpatialTransformer(nn.Module):
+class PRM_Module(nn.Module):
     def __init__(self, input_channels):
-        super(SpatialTransformer, self).__init__()
-        # 定位网络：用于预测仿射变换参数
-        # 假设输入latent是 (N, C, 64, 64)
+        super(PRM_Module, self).__init__()
+
         self.localization = nn.Sequential(
             nn.Conv2d(input_channels, 32, kernel_size=7), # (N, 32, 58, 58)
             nn.MaxPool2d(2, stride=2), # (N, 32, 29, 29)
@@ -39,35 +36,29 @@ class SpatialTransformer(nn.Module):
             nn.ReLU(True)
         )
 
-        # 回归器：将定位网络的输出展平并回归2x3仿射矩阵
-        # 展平后的尺寸取决于定位网络的输出尺寸
-        # 对于 64x64 的输入，经过两次MaxPool2d(2)后，空间维度会变为 12x12
+
         self.fc_loc = nn.Sequential(
             nn.Linear(64 * 12 * 12, 32), # 64 * 12 * 12 = 9216
             nn.ReLU(True),
             nn.Linear(32, 3 * 2) # 输出2x3仿射矩阵的6个参数
         )
 
-        # 初始化回归器的权重和偏置，使其最初表示一个恒等变换
-        # 这有助于训练的稳定性，确保模型在学习新的变换之前不会立即扭曲图像
+
         self.fc_loc[2].weight.data.zero_()
         self.fc_loc[2].bias.data.copy_(torch.tensor([1, 0, 0, 0, 1, 0], dtype=torch.float))
 
-    # STN的前向传播
+
     def forward(self, x):
-        # 1. 通过定位网络获取变换参数
         xs = self.localization(x)
         xs = xs.view(-1, self.fc_loc[0].in_features) # 展平特征图
 
         theta = self.fc_loc(xs) # 获取2x3变换矩阵
         theta = theta.view(-1, 2, 3) # 重塑为 (N, 2, 3)
 
-        # 2. 生成采样网格
-        # x.size() 是 (N, C, H, W)，确保输出的尺寸与输入相同
+
         grid = F.affine_grid(theta, x.size(), align_corners=True)
 
-        # 3. 使用采样网格对输入特征图进行采样
-        # 双线性插值使得整个模块可微分
+
         x_transformed = F.grid_sample(x, grid, align_corners=True)
 
         return x_transformed
@@ -82,7 +73,7 @@ class PAInpaint_RefUet:
         self.referencenet = referencenet.to(self.device)
         self.depth_estimator = depth_estimator.to(self.device).eval()
         self.depth_guider = depth_guider.to(self.device, dtype=torch.float16)
-        self.stn = SpatialTransformer(input_channels=4).to(self.device, dtype=torch.float16)
+        self.stn = PRM_Module(input_channels=4).to(self.device, dtype=torch.float16)
         self.pipe = sd_pipe.to(self.device)
         self.pipe.unet.set_attn_processor(AttnProcessor())
 

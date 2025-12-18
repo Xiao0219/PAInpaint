@@ -2,7 +2,7 @@
 
 ## Framework Overview
 
-![Framework Diagram](assets/framework.pdf)
+![Framework Diagram](assets/overview.pdf)
 
 ## Installing Dependencies
 ```bash

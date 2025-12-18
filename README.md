@@ -2,7 +2,7 @@
 
 ## Framework Overview
 
-![Framework Diagram](assets/framework.png)
+![Framework Diagram](assets/framework.pdf)
 
 ## Installing Dependencies
 ```bash
@@ -70,4 +70,4 @@ The inference results will be saved in the output directory specified in the con
 - Performance evaluation metrics 
 
 ## Experiments
-![Qualitative Results](assets/result.png)
+![Qualitative Results](assets/result.pdf)

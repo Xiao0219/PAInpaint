@@ -71,3 +71,15 @@ The inference results will be saved in the output directory specified in the con
 
 ## Experiments
 ![Qualitative Results](assets/result.png)
+
+## 🌸 Citation
+
+If you find our work useful, please consider citing our paper using the following BibTeX:
+
+```bibtex
+@inproceedings{zhou2025perspective,
+  title     = {Perspective-Aware Inpainting: Bridging Large Viewpoint Gaps for Reference-Guided Inpainting},
+  author    = {Zhou, Shengxiao and Li, Chenghua and Huang, Jianhao and Wang, Peisong},
+  booktitle = {Proceedings of the International Conference on Virtual Reality and Visualization (ICVRV)},
+  year      = {2025}
+}

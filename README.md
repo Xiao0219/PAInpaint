@@ -1,15 +1,18 @@
 # Perspective-Aware Inpainting: Bridging Large Viewpoint Gaps for Reference-Guided Inpainting
 
-## Framework Overview
+## 🧩 Framework Overview
 
 ![Framework Diagram](assets/overview.png)
 
-## Installing Dependencies
+## 🧪 Experiments
+![Qualitative Results](assets/result.png)
+
+## ⚙️ Installing Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-## Model Weights
+## 📦 Model Weights
 Please place the following model weight files in the corresponding directories:
 - Depth model: Place according to the `depth_model` path in the configuration file
 - Base model: Place according to the `pretrained_Target_Unet_path` path in the configuration file
@@ -18,7 +21,7 @@ Please place the following model weight files in the corresponding directories:
 - Reference model: Place according to the `pretrained_Ref_Unet_path` path in the configuration file
 - PAInpaint checkpoint: Place according to the `ckpt_path` path in the configuration file
 
-### Download Links
+### 📥 Download Links
 
 The model weights can be downloaded from the following links:
 
@@ -31,21 +34,21 @@ The model weights can be downloaded from the following links:
 
 After downloading, place the weights in the `checkpoints` directory according to the paths specified in your configuration file.
 
-## Configuration
+## 📝 Configuration
 Please check the `configs/inference.yaml` file before running to ensure all paths are set correctly.
 
-## Running Inference
+## ▶️ Running Inference
 ```bash
 bash run_test_final.sh
 ```
 
-## Input Data
+## 📁 Input Data
 The inference script processes all reference images in the specified directory. Each test sample should include:
 - ref_image.jpg: Reference image
 - tar_image.jpg: Target image
 - mask.png: Mask image
 
-## Dataset Structure
+## 📂 Dataset Structure
 The test dataset should be organized as follows:
 ```
 test_data_directory/
@@ -60,7 +63,7 @@ test_data_directory/
 
 The script identifies related files by their naming pattern. For each reference image named `*ref_image.jpg`, it looks for the corresponding target image and mask with the same prefix.
 
-## Output
+## 📤 Output
 The inference results will be saved in the output directory specified in the configuration file, including:
 - Result image
 - Reference image
@@ -69,8 +72,7 @@ The inference results will be saved in the output directory specified in the con
 - Collage image
 - Performance evaluation metrics 
 
-## Experiments
-![Qualitative Results](assets/result.png)
+
 
 ## 🌸 Citation
 

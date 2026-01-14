@@ -19,8 +19,7 @@ else:
     from .attention_processor import AttnProcessor
 from .resampler import LinearResampler
 
-# from models.ReferenceNet_attention import ReferenceNetAttention
-from models.DSAM_424 import ReferenceNetAttentionXCA as ReferenceNetAttention
+from ReferenceNet_attention.Dual_unet_reference_attention_424 import ReferenceNetAttentionXCA as ReferenceNetAttention
 
 
 class PRM_Module(nn.Module):
